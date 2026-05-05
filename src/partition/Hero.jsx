@@ -1,6 +1,63 @@
 import React from 'react'
 
-const Hero = () => {
+const CONTENT = {
+  EN: {
+    missionTitle: 'Mission',
+    missionSubtitle: 'The Why',
+    missionPoints: [
+      'To provide high-quality education services that empower individuals and open doors to global opportunities.',
+      'To build strong and trustworthy export/import networks that connect Myanmar with the world.',
+      'To contribute and operate with transparency, fairness, and a global mindset, working for the benefit of the public.'
+    ],
+    visionTitle: 'Vision',
+    visionSubtitle: 'The Horizon',
+    visionText: 'To build a trusted international company where education and global trade create opportunities that empower people, strengthen communities, and contribute to a better society.',
+    purpose: 'Purpose',
+    craft: 'Craft',
+    trust: 'Trust',
+    sky: 'Sky',
+    scale: 'Scale',
+    legacy: 'Legacy'
+  },
+  MM: {
+    missionTitle: 'ရည်မှန်းချက်',
+    missionSubtitle: 'အကြောင်းအရင်း',
+    missionPoints: [
+      'တစ်ဦးချင်းစီ၏ စွမ်းဆောင်ရည်ကို မြှင့်တင်ပေးပြီး ကမ္ဘာလုံးဆိုင်ရာ အခွင့်အလမ်းများ ဖွင့်လှစ်ပေးနိုင်မည့် အရည်အသွေးမြင့် ပညာရေးဝန်ဆောင်မှုများ ပေးအပ်ရန်။',
+      'မြန်မာနိုင်ငံနှင့် ကမ္ဘာကြီးကို ချိတ်ဆက်ပေးမည့် ခိုင်မာပြီး ယုံကြည်စိတ်ချရသော ပို့ကုန်/သွင်းကုန် ကွန်ရက်များ တည်ဆောက်ရန်။',
+      'ပွင့်လင်းမြင်သာမှု၊ တရားမျှတမှုနှင့် ကမ္ဘာလုံးဆိုင်ရာ အတွေးအခေါ်များဖြင့် အများပြည်သူအကျိုးအတွက် လုပ်ဆောင်ရန်။'
+    ],
+    visionTitle: 'မျှော်မှန်းချက်',
+    visionSubtitle: 'မိုးကုတ်စက်ဝိုင်း',
+    visionText: 'ပညာရေးနှင့် ကမ္ဘာလုံးဆိုင်ရာ ကုန်သွယ်မှုတို့မှတစ်ဆင့် လူသားများကို စွမ်းဆောင်ရည်မြှင့်တင်ပေးခြင်း၊ လူမှုအသိုင်းအဝိုင်းကို ခိုင်မာစေခြင်းနှင့် ပိုမိုကောင်းမွန်သော လူ့အဖွဲ့အစည်းဖြစ်အောင် အထောက်အကူပြုခြင်းတို့ဖြင့် ယုံကြည်စိတ်ချရသော နိုင်ငံတကာကုမ္ပဏီတစ်ခု တည်ဆောက်ရန်။',
+    purpose: 'ရည်ရွယ်ချက်',
+    craft: 'ကျွမ်းကျင်မှု',
+    trust: 'ယုံကြည်မှု',
+    sky: 'ကောင်းကင်',
+    scale: 'ချဲ့ထွင်မှု',
+    legacy: 'အမွေအနှစ်'
+  },
+  JP: {
+    missionTitle: 'ミッション',
+    missionSubtitle: '理由',
+    missionPoints: [
+      '個人の能力を向上させ、グローバルな機会への扉を開く高品質な教育サービスを提供すること。',
+      'ミャンマーと世界を繋ぐ、強固で信頼できる輸出入ネットワークを構築すること。',
+      '透明性、公平性、そしてグローバルなマインドセットを持って運営し、社会の利益のために貢献すること。'
+    ],
+    visionTitle: 'ビジョン',
+    visionSubtitle: '地平線',
+    visionText: '教育とグローバル貿易を通じて人々を力づけ、コミュニティを強化し、より良い社会に貢献する、信頼される国際的な企業を築くこと。',
+    purpose: '目的',
+    craft: '技術',
+    trust: '信頼',
+    sky: '空',
+    scale: '規模',
+    legacy: '遺産'
+  }
+}
+
+const Hero = ({ currentLang }) => {
   const missionClip = 'polygon(0 0, 62% 0, 38% 100%, 0 100%)'
   const visionClip = 'polygon(62% 0, 100% 0, 100% 100%, 38% 100%)'
   const seamClip = 'polygon(61.7% 0, 62.3% 0, 38.3% 100%, 37.7% 100%)'
@@ -8,6 +65,8 @@ const Hero = () => {
   const serif = "'Cormorant Garamond', 'Playfair Display', Georgia, serif"
   const display = "'Cinzel', 'Cormorant Garamond', Georgia, serif"
   const sans = "'Inter', -apple-system, system-ui, sans-serif"
+
+  const content = CONTENT[currentLang] || CONTENT.EN
 
   return (
     <section
@@ -88,7 +147,7 @@ const Hero = () => {
           </span>
           <span className="h-px w-10 bg-[#8a6510]/40" />
           <span className="text-[10px] font-light tracking-[0.5em] text-[#0d1b5e]/60 uppercase">
-            The Why
+            {content.missionSubtitle}
           </span>
         </div>
 
@@ -96,7 +155,7 @@ const Hero = () => {
           className="mb-2 italic"
           style={{
             fontFamily: serif,
-            fontSize: 'clamp(4rem, 9vw, 8rem)',
+            fontSize: 'clamp(3rem, 7vw, 6rem)',
             fontWeight: 500,
             lineHeight: 0.95,
             letterSpacing: '-0.015em',
@@ -121,29 +180,23 @@ const Hero = () => {
           className="max-w-md space-y-4 text-[16px] leading-[1.6]"
           style={{ fontFamily: serif, fontWeight: 400, color: '#1a2855' }}
         >
-          <li className="flex gap-3">
-            <span className="mt-1.5 text-[10px] text-[#8a6510]">▶</span>
-            <span>To provide high-quality education services that empower individuals and open doors to global opportunities.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="mt-1.5 text-[10px] text-[#8a6510]">▶</span>
-            <span>To build strong and trustworthy export/import networks that connect Myanmar with the world.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="mt-1.5 text-[10px] text-[#8a6510]">▶</span>
-            <span>To contribute and operate with transparency, fairness, and a global mindset, working for the benefit of the public.</span>
-          </li>
+          {content.missionPoints.map((point, index) => (
+            <li key={index} className="flex gap-3">
+              <span className="mt-1.5 text-[10px] text-[#8a6510]">▶</span>
+              <span>{point}</span>
+            </li>
+          ))}
         </ul>
 
         <div
           className="mt-8 flex items-center gap-3 text-[10px] tracking-[0.45em] uppercase"
           style={{ fontFamily: sans, fontWeight: 400, color: 'rgba(13,27,94,0.55)' }}
         >
-          <span>Purpose</span>
+          <span>{content.purpose}</span>
           <span className="text-[#8a6510]/70">·</span>
-          <span>Craft</span>
+          <span>{content.craft}</span>
           <span className="text-[#8a6510]/70">·</span>
-          <span>Trust</span>
+          <span>{content.trust}</span>
         </div>
       </div>
 
@@ -153,7 +206,7 @@ const Hero = () => {
           style={{ fontFamily: sans }}
         >
           <span className="text-[10px] font-light tracking-[0.5em] text-[#d4e0f0]/60 uppercase">
-            The Horizon
+            {content.visionSubtitle}
           </span>
           <span className="h-px w-10 bg-[#d4a945]/50" />
           <span className="text-[10px] font-medium tracking-[0.55em] text-[#d4a945]">
@@ -165,7 +218,7 @@ const Hero = () => {
           className="mb-2 italic text-[#eef2fb]"
           style={{
             fontFamily: serif,
-            fontSize: 'clamp(4rem, 9vw, 8rem)',
+            fontSize: 'clamp(3rem, 7vw, 6rem)',
             fontWeight: 500,
             lineHeight: 0.95,
             letterSpacing: '-0.015em',
@@ -190,7 +243,7 @@ const Hero = () => {
           style={{ fontFamily: serif, fontWeight: 400 }}
         >
           <div className="flex justify-end gap-3">
-            <span>To build a trusted international company where education and global trade create opportunities that empower people, strengthen communities, and contribute to a better society.</span>
+            <span>{content.visionText}</span>
             <span className="mt-1.5 text-[10px] text-[#d4a945]">◀</span>
           </div>
         </div>
@@ -199,11 +252,11 @@ const Hero = () => {
           className="mt-8 flex items-center justify-end gap-3 text-[10px] tracking-[0.45em] text-[#d4e0f0]/40 uppercase"
           style={{ fontFamily: sans, fontWeight: 300 }}
         >
-          <span>Sky</span>
+          <span>{content.sky}</span>
           <span className="text-[#d4a945]/60">·</span>
-          <span>Scale</span>
+          <span>{content.scale}</span>
           <span className="text-[#d4a945]/60">·</span>
-          <span>Legacy</span>
+          <span>{content.legacy}</span>
         </div>
       </div>
 
