@@ -117,14 +117,23 @@ const Hero = () => {
           </span>
         </div>
 
-        <p
-          className="max-w-md text-[17px] leading-[1.75]"
+        <ul
+          className="max-w-md space-y-4 text-[16px] leading-[1.6]"
           style={{ fontFamily: serif, fontWeight: 400, color: '#1a2855' }}
         >
-          To empower bold ventures with capital, conviction, and craft —
-          building enterprises that compound value across generations and
-          serve the communities we touch.
-        </p>
+          <li className="flex gap-3">
+            <span className="mt-1.5 text-[10px] text-[#8a6510]">▶</span>
+            <span>To provide high-quality education services that empower individuals and open doors to global opportunities.</span>
+          </li>
+          <li className="flex gap-3">
+            <span className="mt-1.5 text-[10px] text-[#8a6510]">▶</span>
+            <span>To build strong and trustworthy export/import networks that connect Myanmar with the world.</span>
+          </li>
+          <li className="flex gap-3">
+            <span className="mt-1.5 text-[10px] text-[#8a6510]">▶</span>
+            <span>To contribute and operate with transparency, fairness, and a global mindset, working for the benefit of the public.</span>
+          </li>
+        </ul>
 
         <div
           className="mt-8 flex items-center gap-3 text-[10px] tracking-[0.45em] uppercase"
@@ -176,14 +185,15 @@ const Hero = () => {
           <span className="h-px w-12 bg-[#d4a945]" />
         </div>
 
-        <p
+        <div
           className="ml-auto max-w-md text-[17px] leading-[1.75] text-[#d4e0f0]/85"
           style={{ fontFamily: serif, fontWeight: 400 }}
         >
-          To stand at the edge of every horizon — a holding company shaping
-          tomorrow's icons, where ambition meets the sky and limits dissolve
-          into legacy.
-        </p>
+          <div className="flex justify-end gap-3">
+            <span>To build a trusted international company where education and global trade create opportunities that empower people, strengthen communities, and contribute to a better society.</span>
+            <span className="mt-1.5 text-[10px] text-[#d4a945]">◀</span>
+          </div>
+        </div>
 
         <div
           className="mt-8 flex items-center justify-end gap-3 text-[10px] tracking-[0.45em] text-[#d4e0f0]/40 uppercase"
