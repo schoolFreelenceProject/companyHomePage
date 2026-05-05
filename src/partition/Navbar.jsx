@@ -7,13 +7,14 @@ const LANGUAGES = [
   { code: 'JP', label: 'Japanese', native: '日本語' },
 ]
 
-const Navbar = () => {
+const Navbar = ({ currentLang, setCurrentLang }) => {
   const serif = "'Cormorant Garamond', 'Playfair Display', Georgia, serif"
   const display = "'Cinzel', 'Cormorant Garamond', Georgia, serif"
 
-  const [lang, setLang] = useState(LANGUAGES[0])
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
+
+  const lang = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0]
 
   useEffect(() => {
     const onClick = (e) => {
@@ -102,7 +103,7 @@ const Navbar = () => {
                       role="option"
                       aria-selected={active}
                       onClick={() => {
-                        setLang(item)
+                        setCurrentLang(item.code)
                         setOpen(false)
                       }}
                       className={`flex cursor-pointer items-center justify-between px-4 py-3 text-[13px] tracking-[0.15em] uppercase transition-colors duration-200 ${
