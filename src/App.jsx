@@ -1,18 +1,23 @@
 import React from 'react'
 import Navbar from './partition/Navbar'
+import Hero from './partition/Hero'
 
 const App = () => {
   return (
    <>
      <div className='h-screen'>
-        <header className=' w-full border-b-1 border-gray-100 shadow-sm h-1/12'>
-        <div className=" ">
+        <header
+          className='w-full h-1/12'
+          style={{
+            background: 'linear-gradient(180deg, #fbf6ec 0%, #f5ead0 100%)',
+            borderBottom: '3px double #b8860b',
+            boxShadow: '0 2px 12px rgba(184,134,11,0.08)',
+          }}
+        >
             <Navbar />
-        </div>
      </header>
-        <main className='mx-auto p-4 bg-amber-200 h-11/12' >
-            <h1 className='text-3xl font-bold mb-4'>Welcome to Sora Empire</h1>
-            <p className='text-gray-700 mb-6'>Your one-stop solution for all your needs. We offer a wide range of services to help you succeed.</p>
+        <main className='h-11/12 overflow-y-auto'>
+            <Hero />
         </main>
      </div>
    </>
