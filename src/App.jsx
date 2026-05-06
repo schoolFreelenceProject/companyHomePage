@@ -3,6 +3,7 @@ import Navbar from './partition/Navbar'
 import Hero from './partition/Hero'
 import About from './partition/About'
 import Services from './partition/Services'
+import Contact from './partition/Contact'
 
 const App = () => {
   const [currentLang, setCurrentLang] = useState('EN')
@@ -24,6 +25,7 @@ const App = () => {
             <Hero currentLang={currentLang} />
             <About currentLang={currentLang} />
             <Services currentLang={currentLang} />
+            <Contact />
         </main>
 
      </div>
