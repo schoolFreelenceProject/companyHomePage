@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Navbar from './partition/Navbar'
 import Hero from './partition/Hero'
+import About from './partition/About'
+import Services from './partition/Services'
 
 const App = () => {
   const [currentLang, setCurrentLang] = useState('EN')
@@ -20,7 +22,10 @@ const App = () => {
      </header>
         <main className='h-11/12 overflow-y-auto'>
             <Hero currentLang={currentLang} />
+            <About currentLang={currentLang} />
+            <Services currentLang={currentLang} />
         </main>
+
      </div>
    </>
   )
