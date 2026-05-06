@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ScrollReveal from './ScrollReveal'
 
 const CONTENT = {
   EN: {
@@ -71,12 +72,13 @@ const Hero = ({ currentLang }) => {
 
   return (
     <section
+      id="mission"
       className="relative h-full min-h-[640px] overflow-hidden"
       style={{ background: '#1a1410', fontFamily: serif }}
     >
       {/* ── Mission background ── */}
       <div
-        className="absolute inset-0"
+        className="hero-panel-left absolute inset-0"
         style={{
           clipPath: missionClip,
           background: 'radial-gradient(ellipse at 30% 35%, #ffffff 0%, #fbf7ed 55%, #f0e6d0 100%)',
@@ -102,7 +104,7 @@ const Hero = ({ currentLang }) => {
 
       {/* ── Vision background ── */}
       <div
-        className="absolute inset-0"
+        className="hero-panel-right absolute inset-0"
         style={{
           clipPath: visionClip,
           background: 'radial-gradient(ellipse at 70% 65%, #1c2c52 0%, #131e3c 45%, #08101f 100%)',
@@ -116,7 +118,7 @@ const Hero = ({ currentLang }) => {
         }}
       />
       <div
-        className="pointer-events-none absolute inset-0"
+        className="hero-gold-pulse pointer-events-none absolute inset-0"
         style={{
           clipPath: visionClip,
           backgroundImage:
@@ -138,7 +140,7 @@ const Hero = ({ currentLang }) => {
       />
 
       {/* ── Mission content ── */}
-      <div className="absolute top-[16%] left-[8%] w-[34%]">
+      <ScrollReveal className="absolute top-[16%] left-[8%] w-[34%]" direction="left" delay={180}>
         {/* Static label row */}
         <div className="mb-6 flex items-center gap-4" style={{ fontFamily: sans }}>
           <span className="text-[10px] font-medium tracking-[0.55em] text-[#8a6510]">I</span>
@@ -197,10 +199,10 @@ const Hero = ({ currentLang }) => {
           <span className="text-[#8a6510]/70">·</span>
           <span>Trust</span>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* ── Vision content ── */}
-      <div className="absolute bottom-[14%] right-[8%] w-[34%] text-right">
+      <ScrollReveal className="absolute bottom-[14%] right-[8%] w-[34%] text-right" direction="right" delay={360}>
         {/* Static label row */}
         <div className="mb-6 flex items-center justify-end gap-4" style={{ fontFamily: sans }}>
           <span className="text-[10px] font-light tracking-[0.5em] text-[#d4e0f0]/60 uppercase">
@@ -237,10 +239,9 @@ const Hero = ({ currentLang }) => {
           className="ml-auto max-w-md min-h-[120px]"
           style={{ fontFamily: serif }}
         >
-          <div className="flex justify-end gap-3 text-[17px] leading-[1.75] text-[#d4e0f0]/85" style={{ fontWeight: 400 }}>
-            <span>{content.visionText}</span>
-            <span className="mt-1.5 text-[10px] text-[#d4a945]">◀</span>
-          </div>
+          <p className="text-right text-[17px] leading-[1.75] text-[#d4e0f0]/85" style={{ fontWeight: 400 }}>
+            {content.visionText}
+          </p>
         </FadeText>
 
         {/* Static footer tags */}
@@ -254,7 +255,7 @@ const Hero = ({ currentLang }) => {
           <span className="text-[#d4a945]/60">·</span>
           <span>Legacy</span>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* ── Bottom center wordmark ── */}
       <div
@@ -265,7 +266,7 @@ const Hero = ({ currentLang }) => {
       </div>
 
       {/* ── Top-left ornament ── */}
-      <div className="pointer-events-none absolute" style={{ top: '4%', left: '2.5%' }}>
+      <div className="ornament-drift pointer-events-none absolute" style={{ top: '4%', left: '2.5%' }}>
         <svg width="68" height="68" viewBox="0 0 68 68" fill="none" opacity="0.7">
           <circle cx="34" cy="34" r="33" stroke="#8a6510" strokeWidth="0.5" />
           <circle cx="34" cy="34" r="27" stroke="#8a6510" strokeWidth="0.3" />
@@ -277,7 +278,7 @@ const Hero = ({ currentLang }) => {
       </div>
 
       {/* ── Bottom-right ornament ── */}
-      <div className="pointer-events-none absolute" style={{ bottom: '4%', right: '2.5%' }}>
+      <div className="ornament-drift pointer-events-none absolute" style={{ bottom: '4%', right: '2.5%' }}>
         <svg width="72" height="72" viewBox="0 0 72 72" fill="none" opacity="0.5">
           <circle cx="36" cy="36" r="35" stroke="#d4a945" strokeWidth="0.5" />
           <path d="M36 6 L40 32 L66 36 L40 40 L36 66 L32 40 L6 36 L32 32 Z" stroke="#d4a945" strokeWidth="0.6" fill="none" />

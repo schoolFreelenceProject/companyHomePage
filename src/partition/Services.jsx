@@ -5,6 +5,7 @@ import jewelleryLogo from '../assets/IMG_4855.jpeg'
 import climateLogo from '../assets/IMG_4856.jpeg'
 import fashionLogo from '../assets/IMG_4857.jpeg'
 import technologyLogo from '../assets/IMG_4858.jpeg'
+import ScrollReveal from './ScrollReveal'
 
 const SECTION = {
   EN: {
@@ -190,7 +191,7 @@ const Services = ({ currentLang = 'EN' }) => {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-6 flex items-center justify-center gap-5">
+        <ScrollReveal className="mb-6 flex items-center justify-center gap-5" direction="soft">
           <span className="h-px w-20 bg-gradient-to-r from-transparent to-[#b8860b]" />
           <FadeSwap
             langKey="EN"
@@ -200,36 +201,40 @@ const Services = ({ currentLang = 'EN' }) => {
             SERVICES · VI
           </FadeSwap>
           <span className="h-px w-20 bg-gradient-to-l from-transparent to-[#b8860b]" />
-        </div>
+        </ScrollReveal>
 
-        <FadeSwap
-          langKey="EN"
-          className="mb-4 text-center"
-          style={{
-            fontFamily: serif,
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-            fontWeight: 500,
-            lineHeight: 1.1,
-            letterSpacing: '-0.01em',
-            color: '#0d1b5e',
-          }}
-        >
-          <h2 className="italic">Our Houses</h2>
-        </FadeSwap>
+        <ScrollReveal direction="up" delay={100}>
+          <FadeSwap
+            langKey="EN"
+            className="mb-4 text-center"
+            style={{
+              fontFamily: serif,
+              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontWeight: 500,
+              lineHeight: 1.1,
+              letterSpacing: '-0.01em',
+              color: '#0d1b5e',
+            }}
+          >
+            <h2 className="italic">Our Houses</h2>
+          </FadeSwap>
+        </ScrollReveal>
 
-        <FadeSwap
-          langKey="EN"
-          className="mx-auto mb-6 max-w-2xl text-center"
-          style={{
-            fontFamily: serif,
-            fontSize: '20px',
-            color: '#8a6510',
-            fontStyle: 'italic',
-            fontWeight: 500,
-          }}
-        >
-          Six ventures. One empire.
-        </FadeSwap>
+        <ScrollReveal direction="up" delay={170}>
+          <FadeSwap
+            langKey="EN"
+            className="mx-auto mb-6 max-w-2xl text-center"
+            style={{
+              fontFamily: serif,
+              fontSize: '20px',
+              color: '#8a6510',
+              fontStyle: 'italic',
+              fontWeight: 500,
+            }}
+          >
+            Six ventures. One empire.
+          </FadeSwap>
+        </ScrollReveal>
 
         <div className="mx-auto mb-6 flex items-center justify-center gap-3">
           <span className="h-[1.5px] w-12 bg-[#b8860b]" />
@@ -244,25 +249,27 @@ const Services = ({ currentLang = 'EN' }) => {
           <span className="h-[1.5px] w-12 bg-[#b8860b]" />
         </div>
 
-        <FadeSwap
-          langKey={currentLang}
-          className="mx-auto mb-16 max-w-2xl text-center"
-          style={{
-            fontFamily: translatedSerif,
-            fontSize: '10px',
-            lineHeight: 1.7,
-            color: '#3a3a5a',
-            minHeight: '34px',
-          }}
-        >
-          {section.tagline}
-        </FadeSwap>
+        <ScrollReveal direction="up" delay={240}>
+          <FadeSwap
+            langKey={currentLang}
+            className="mx-auto mb-16 max-w-2xl text-center"
+            style={{
+              fontFamily: translatedSerif,
+              fontSize: '16px',
+              lineHeight: 1.7,
+              color: '#3a3a5a',
+              minHeight: '54px',
+            }}
+          >
+            {section.tagline}
+          </FadeSwap>
+        </ScrollReveal>
 
         <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service) => (
-            <article
-              key={service.roman}
-              className="group relative overflow-hidden bg-white/55 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1"
+          {SERVICES.map((service, index) => (
+            <ScrollReveal key={service.roman} className="h-full" delay={index * 90} direction="soft">
+              <article
+              className="group relative flex h-full min-h-[470px] flex-col overflow-hidden bg-white/55 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1"
               style={{
                 border: '1px solid rgba(184,134,11,0.35)',
                 boxShadow:
@@ -289,7 +296,7 @@ const Services = ({ currentLang = 'EN' }) => {
                 ◆
               </div>
 
-              <div className="px-7 pb-7 pt-12">
+              <div className="flex h-full flex-col px-7 pb-7 pt-12">
                 <div className="mb-6 flex justify-center">
                   <div
                     className="relative flex h-24 w-24 items-center justify-center overflow-hidden bg-white transition-transform duration-500 group-hover:scale-105"
@@ -335,7 +342,7 @@ const Services = ({ currentLang = 'EN' }) => {
 
                 <FadeSwap
                   langKey="EN"
-                  className="text-center"
+                  className="min-h-[76px] text-center"
                   style={{
                     fontFamily: serif,
                     color: '#0d1b5e',
@@ -373,7 +380,7 @@ const Services = ({ currentLang = 'EN' }) => {
 
                 <FadeSwap
                   langKey={currentLang}
-                  className="min-h-[80px] text-center"
+                  className="min-h-[105px] text-center"
                   style={{
                     fontFamily: translatedSerif,
                     fontSize: '14.5px',
@@ -385,21 +392,23 @@ const Services = ({ currentLang = 'EN' }) => {
                   <p>{service.desc[currentLang]}</p>
                 </FadeSwap>
 
-                {service.roman === 'I' && (
-                  <div
-                    className="mt-6 flex items-center justify-center gap-2 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    style={{
-                      fontFamily: display,
-                      fontSize: '10px',
-                      letterSpacing: '0.4em',
-                      color: service.accent,
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    <span>{SECTION.EN.visit}</span>
-                    <span>→</span>
-                  </div>
-                )}
+                <div
+                  className={`mt-auto flex h-12 items-end justify-center gap-2 transition-opacity duration-500 ${
+                    service.roman === 'I'
+                      ? 'opacity-0 group-hover:opacity-100'
+                      : 'pointer-events-none opacity-0'
+                  }`}
+                  style={{
+                    fontFamily: display,
+                    fontSize: '10px',
+                    letterSpacing: '0.4em',
+                    color: service.accent,
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  <span>{SECTION.EN.visit}</span>
+                  <span>→</span>
+                </div>
               </div>
 
               <div
@@ -408,11 +417,12 @@ const Services = ({ currentLang = 'EN' }) => {
                   background: `linear-gradient(90deg, transparent, ${service.accent} 50%, transparent)`,
                 }}
               />
-            </article>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-20 flex items-center justify-center gap-4">
+        <ScrollReveal className="mt-20 flex items-center justify-center gap-4" direction="soft">
           <span className="h-px w-24 bg-gradient-to-r from-transparent to-[#b8860b]" />
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <circle cx="11" cy="11" r="10" stroke="#b8860b" strokeWidth="0.6" />
@@ -424,7 +434,7 @@ const Services = ({ currentLang = 'EN' }) => {
             />
           </svg>
           <span className="h-px w-24 bg-gradient-to-l from-transparent to-[#b8860b]" />
-        </div>
+        </ScrollReveal>
       </div>
 
       <div

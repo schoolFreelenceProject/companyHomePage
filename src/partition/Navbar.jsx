@@ -29,11 +29,11 @@ const Navbar = ({ currentLang, setCurrentLang }) => {
 
   return (
     <nav
-      className="mx-auto flex h-full items-center justify-between px-8"
+      className="relative z-10 mx-auto flex h-full items-center justify-between px-8"
       style={{ fontFamily: serif }}
     >
       <div className="flex items-center gap-4">
-        <img src={soraLogo} alt="Sora Empire" className="h-12 w-auto object-contain" />
+        <a href="#mission"><img src={soraLogo} alt="Sora Empire" className="h-12 w-auto object-contain" /></a>
       </div>
 
       <ul
@@ -89,7 +89,7 @@ const Navbar = ({ currentLang, setCurrentLang }) => {
             {open && (
               <ul
                 role="listbox"
-                className="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden border border-[#b8860b]/40 shadow-lg"
+                className="absolute right-0 top-full z-[70] mt-2 w-44 overflow-hidden border border-[#b8860b]/40 shadow-lg"
                 style={{
                   background: 'linear-gradient(180deg, #fbf6ec 0%, #f5ead0 100%)',
                   fontFamily: serif,

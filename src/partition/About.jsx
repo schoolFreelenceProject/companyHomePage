@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import founderPhoto from '../assets/IMG_4855.jpeg'
+import ScrollReveal from './ScrollReveal'
 
 const CONTENT = {
   EN: {
@@ -149,7 +150,7 @@ const About = ({ currentLang = 'EN' }) => {
         }}
       />
 
-      <div className="pointer-events-none absolute top-8 left-8 opacity-40">
+      <div className="ornament-drift pointer-events-none absolute top-8 left-8 opacity-40">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="31" stroke="#b8860b" strokeWidth="0.5" />
           <circle cx="32" cy="32" r="24" stroke="#b8860b" strokeWidth="0.3" />
@@ -161,7 +162,7 @@ const About = ({ currentLang = 'EN' }) => {
           />
         </svg>
       </div>
-      <div className="pointer-events-none absolute top-8 right-8 opacity-40">
+      <div className="ornament-drift pointer-events-none absolute top-8 right-8 opacity-40">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="31" stroke="#b8860b" strokeWidth="0.5" />
           <circle cx="32" cy="32" r="24" stroke="#b8860b" strokeWidth="0.3" />
@@ -175,7 +176,7 @@ const About = ({ currentLang = 'EN' }) => {
       </div>
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="mb-16 flex items-center justify-center gap-5">
+        <ScrollReveal className="mb-16 flex items-center justify-center gap-5" direction="soft">
           <span className="h-px w-20 bg-gradient-to-r from-transparent to-[#b8860b]" />
           <span
             className="text-[11px] font-medium tracking-[0.5em] text-[#8a6510]"
@@ -184,10 +185,10 @@ const About = ({ currentLang = 'EN' }) => {
             FOUNDER · I
           </span>
           <span className="h-px w-20 bg-gradient-to-l from-transparent to-[#b8860b]" />
-        </div>
+        </ScrollReveal>
 
         <div className="grid items-center gap-14 md:grid-cols-[5fr_7fr]">
-          <div className="relative">
+          <ScrollReveal className="relative" direction="left" delay={120}>
             <div
               className="absolute -top-3 -left-3 z-0 h-32 w-32"
               style={{
@@ -259,9 +260,9 @@ const About = ({ currentLang = 'EN' }) => {
                 {content.role}
               </FadeSwap>
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div>
+          <ScrollReveal direction="right" delay={260}>
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px w-10 bg-[#b8860b]" />
               <span
@@ -377,7 +378,7 @@ const About = ({ currentLang = 'EN' }) => {
               <span className="text-[#8a6510]/70">·</span>
               <span>{content.tags[2]}</span>
             </FadeSwap>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
 

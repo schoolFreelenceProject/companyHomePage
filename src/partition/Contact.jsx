@@ -4,6 +4,7 @@ import telegramQr from '../assets/contact/telegram-qr.png'
 import facebookQr from '../assets/contact/facebook-qr.png'
 import tiktokQr from '../assets/contact/tiktok-qr.png'
 import viberQr from '../assets/contact/viber-qr.png'
+import ScrollReveal from './ScrollReveal'
 
 const CONTACT_DETAILS = [
   {
@@ -106,19 +107,19 @@ const Contact = () => {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-14 flex items-center justify-center gap-5">
+        <ScrollReveal className="mb-14 flex items-center justify-center gap-5" direction="soft">
           <span className="h-px w-20 bg-gradient-to-r from-transparent to-[#b8860b]" />
           <span
             className="text-[11px] font-medium tracking-[0.5em] text-[#8a6510]"
             style={{ fontFamily: display }}
           >
-            CONTACT · VII
+            CONTACT
           </span>
           <span className="h-px w-20 bg-gradient-to-l from-transparent to-[#b8860b]" />
-        </div>
+        </ScrollReveal>
 
         <div className="grid gap-14 lg:grid-cols-[7fr_5fr] lg:items-start">
-          <div>
+          <ScrollReveal direction="left" delay={120}>
             <h2
               className="text-[48px] italic sm:text-[64px] lg:text-[72px]"
               style={{
@@ -219,9 +220,9 @@ const Contact = () => {
               {/*<span className="truncate">soraempirewoldwide@gmail.com</span>*/}
               {/*<span className="text-[#b8860b]">→</span>*/}
             </a>
-          </div>
+          </ScrollReveal>
 
-          <div className="relative">
+          <ScrollReveal className="relative" direction="right" delay={260}>
             <div
               className="absolute -left-3 -top-3 h-28 w-28"
               style={{
@@ -287,7 +288,7 @@ const Contact = () => {
                 style={{ border: '1px solid rgba(184,134,11,0.25)' }}
               />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/*<div className="mt-20">*/}
