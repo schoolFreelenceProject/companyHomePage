@@ -1,26 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import academyLogo from '../assets/IMG_4853.jpeg'
+import estatesLogo from '../assets/IMG_4854.jpeg'
+import jewelleryLogo from '../assets/IMG_4855.jpeg'
+import climateLogo from '../assets/IMG_4856.jpeg'
+import fashionLogo from '../assets/IMG_4857.jpeg'
+import technologyLogo from '../assets/IMG_4858.jpeg'
 
 const SECTION = {
   EN: {
-    
-    title: 'Our Houses',
-    subtitle: 'Six ventures. One empire.',
     tagline:
       'Each enterprise carries the SORA standard — purpose, craft, and trust passed across every endeavour.',
     visit: 'Discover',
   },
   MM: {
-    
-    title: 'ကျွန်ုပ်တို့၏ လုပ်ငန်းများ',
-    subtitle: 'လုပ်ငန်း ၆ ခု၊ အင်ပါယာ တစ်ခု။',
     tagline:
       'လုပ်ငန်းတိုင်းသည် SORA စံချိန်စံညွှန်းကို သယ်ဆောင်ထားသည် — ရည်ရွယ်ချက်၊ လက်ရာနှင့် ယုံကြည်မှု။',
     visit: 'ကြည့်ရန်',
   },
   JP: {
-    
-    title: '我々の事業',
-    subtitle: '6つの事業、ひとつの帝国。',
     tagline:
       'すべての企業がSORAの基準を体現する — 目的、技、そして信頼。',
     visit: '詳細',
@@ -30,9 +27,9 @@ const SECTION = {
 const SERVICES = [
   {
     roman: 'I',
-    sigil: 'SE',
     accent: '#0d1b5e',
     accentSoft: '#1a2855',
+    logo: academyLogo,
     parent: { EN: 'Languages Academy', MM: 'ဘာသာစကား အကယ်ဒမီ', JP: '言語アカデミー' },
     name: { EN: 'SORA Empire', MM: 'SORA Empire', JP: 'SORA Empire' },
     category: { EN: 'Education', MM: 'ပညာရေး', JP: '教育' },
@@ -44,9 +41,9 @@ const SERVICES = [
   },
   {
     roman: 'II',
-    sigil: '28',
     accent: '#0d1b5e',
     accentSoft: '#1a2855',
+    logo: estatesLogo,
     parent: { EN: 'Crown Estates', MM: 'Crown Estates', JP: 'Crown Estates' },
     name: { EN: '28', MM: '၂၈', JP: '28' },
     category: { EN: 'Real Estate', MM: 'အိမ်ခြံမြေ', JP: '不動産' },
@@ -58,9 +55,9 @@ const SERVICES = [
   },
   {
     roman: 'III',
-    sigil: '◆',
     accent: '#b8860b',
     accentSoft: '#d4a945',
+    logo: jewelleryLogo,
     parent: { EN: 'Diamond & Jewellery', MM: 'စိန်နှင့် ရွှေထည်', JP: 'ダイヤモンド & ジュエリー' },
     name: { EN: 'SORA', MM: 'SORA', JP: 'SORA' },
     category: { EN: 'Atelier', MM: 'အလှအပ', JP: 'アトリエ' },
@@ -72,9 +69,9 @@ const SERVICES = [
   },
   {
     roman: 'IV',
-    sigil: 'IS',
     accent: '#1f6f96',
     accentSoft: '#3da0c8',
+    logo: climateLogo,
     parent: { EN: 'Ichi Sky', MM: 'Ichi Sky', JP: 'Ichi Sky' },
     name: { EN: 'Air-con Solution', MM: 'လေအေးပေးစက်', JP: 'エアコン' },
     category: { EN: 'Engineering', MM: 'အင်ဂျင်နီယာ', JP: 'エンジニアリング' },
@@ -86,9 +83,9 @@ const SERVICES = [
   },
   {
     roman: 'V',
-    sigil: 'SP',
     accent: '#1a1a1a',
     accentSoft: '#3a3a3a',
+    logo: fashionLogo,
     parent: { EN: 'Sancar Pann', MM: 'Sancar Pann', JP: 'Sancar Pann' },
     name: { EN: 'Fashion House', MM: 'ဖက်ရှင်အိမ်တော်', JP: 'ファッションハウス' },
     category: { EN: 'Couture', MM: 'ဖက်ရှင်', JP: 'クチュール' },
@@ -100,9 +97,9 @@ const SERVICES = [
   },
   {
     roman: 'VI',
-    sigil: 'BP',
     accent: '#1f4ba8',
     accentSoft: '#3266c8',
+    logo: technologyLogo,
     parent: { EN: 'BluePrint', MM: 'BluePrint', JP: 'BluePrint' },
     name: { EN: 'Technology', MM: 'နည်းပညာ အဖွဲ့', JP: 'テクノロジー' },
     category: { EN: 'Technology', MM: 'နည်းပညာ', JP: 'テクノロジー' },
@@ -153,13 +150,9 @@ const Services = ({ currentLang = 'EN' }) => {
   const display = "'Cinzel', 'Cormorant Garamond', Georgia, serif"
   const sansBase = "'Inter', -apple-system, system-ui, sans-serif"
 
-  const serif = langFontFor(currentLang, serifBase)
-  const sans = langFontFor(currentLang, sansBase)
-
-  const isLatin = currentLang === 'EN'
-  const labelTracking = isLatin ? '0.45em' : 'normal'
-  const labelTransform = isLatin ? 'uppercase' : 'none'
-
+  const serif = serifBase
+  const sans = sansBase
+  const translatedSerif = langFontFor(currentLang, serifBase)
   const section = SECTION[currentLang] || SECTION.EN
 
   return (
@@ -200,17 +193,17 @@ const Services = ({ currentLang = 'EN' }) => {
         <div className="mb-6 flex items-center justify-center gap-5">
           <span className="h-px w-20 bg-gradient-to-r from-transparent to-[#b8860b]" />
           <FadeSwap
-            langKey={currentLang}
+            langKey="EN"
             className="text-[11px] font-medium tracking-[0.5em] text-[#8a6510]"
             style={{ fontFamily: display }}
           >
-             'CHAPTER · IV'
+            SERVICES · VI
           </FadeSwap>
           <span className="h-px w-20 bg-gradient-to-l from-transparent to-[#b8860b]" />
         </div>
 
         <FadeSwap
-          langKey={currentLang}
+          langKey="EN"
           className="mb-4 text-center"
           style={{
             fontFamily: serif,
@@ -225,7 +218,7 @@ const Services = ({ currentLang = 'EN' }) => {
         </FadeSwap>
 
         <FadeSwap
-          langKey={currentLang}
+          langKey="EN"
           className="mx-auto mb-6 max-w-2xl text-center"
           style={{
             fontFamily: serif,
@@ -255,10 +248,11 @@ const Services = ({ currentLang = 'EN' }) => {
           langKey={currentLang}
           className="mx-auto mb-16 max-w-2xl text-center"
           style={{
-            fontFamily: serif,
+            fontFamily: translatedSerif,
             fontSize: '10px',
             lineHeight: 1.7,
             color: '#3a3a5a',
+            minHeight: '34px',
           }}
         >
           {section.tagline}
@@ -296,59 +290,51 @@ const Services = ({ currentLang = 'EN' }) => {
               </div>
 
               <div className="px-7 pb-7 pt-12">
-                {/* //logo and category */}
-                <div className="mb-6 flex justify-center"> 
-                   <div
-                    className="relative flex h-24 w-24 items-center justify-center transition-transform duration-500 group-hover:scale-105"
+                <div className="mb-6 flex justify-center">
+                  <div
+                    className="relative flex h-24 w-24 items-center justify-center overflow-hidden bg-white transition-transform duration-500 group-hover:scale-105"
                     style={{
-                      background: `linear-gradient(135deg, ${service.accent} 0%, ${service.accentSoft} 100%)`,
                       borderRadius: '4px',
                       boxShadow: `0 8px 20px ${service.accent}33, 0 2px 6px ${service.accent}22`,
                     }}
-                  > 
-                     <div
+                  >
+                    <img
+                      src={service.logo}
+                      alt={`${service.parent.EN} logo`}
+                      className="h-full w-full object-cover"
+                    />
+                    <div
+                      className="pointer-events-none absolute inset-0"
+                      style={{
+                        background: `linear-gradient(135deg, ${service.accent}22 0%, transparent 55%, ${service.accentSoft}22 100%)`,
+                      }}
+                    />
+                    <div
                       className="pointer-events-none absolute inset-1.5"
                       style={{
-                        border: '1px solid rgba(255,255,255,0.25)',
+                        border: '1px solid rgba(255,255,255,0.45)',
                         borderRadius: '2px',
                       }}
-                    /> 
-                    <span
-                      className="relative text-white"
-                      style={{
-                        fontFamily: display,
-                        fontSize:
-                          service.sigil === '◆'
-                            ? '30px'
-                            : service.sigil.length > 2
-                              ? '20px'
-                              : '32px',
-                        fontWeight: 600,
-                        letterSpacing:
-                          service.sigil.length > 1 ? '0.05em' : 'normal',
-                      }}
-                    >
-                      {service.sigil}
-                    </span> 
+                    />
                   </div>
                 </div>
 
                 <FadeSwap
-                  langKey={currentLang}
+                  langKey="EN"
                   className="mb-2 text-center text-[10px] font-medium text-[#8a6510]"
                   style={{
                     fontFamily: sans,
-                    letterSpacing: labelTracking,
-                    textTransform: labelTransform,
+                    letterSpacing: '0.45em',
+                    textTransform: 'uppercase',
                   }}
                 >
-                  {service.category[currentLang]}
+                  {service.category.EN}
                 </FadeSwap>
 
                 <div className="mx-auto mb-3 h-px w-10 bg-[#b8860b]/60" />
 
                 <FadeSwap
-                  langKey={currentLang}
+                  langKey="EN"
                   className="text-center"
                   style={{
                     fontFamily: serif,
@@ -364,18 +350,18 @@ const Services = ({ currentLang = 'EN' }) => {
                       letterSpacing: '-0.005em',
                     }}
                   >
-                    {service.parent[currentLang]}
+                    {service.parent.EN}
                   </h3>
                   <div
                     className="mt-1 text-[13px] font-medium"
                     style={{
                       color: service.accent,
                       fontFamily: display,
-                      letterSpacing: isLatin ? '0.18em' : 'normal',
-                      textTransform: labelTransform,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
                     }}
                   >
-                    {service.name[currentLang]}
+                    {service.name.EN}
                   </div>
                 </FadeSwap>
 
@@ -389,7 +375,7 @@ const Services = ({ currentLang = 'EN' }) => {
                   langKey={currentLang}
                   className="min-h-[80px] text-center"
                   style={{
-                    fontFamily: serif,
+                    fontFamily: translatedSerif,
                     fontSize: '14.5px',
                     lineHeight: 1.65,
                     color: '#3a3a5a',
@@ -399,19 +385,21 @@ const Services = ({ currentLang = 'EN' }) => {
                   <p>{service.desc[currentLang]}</p>
                 </FadeSwap>
 
-                <div
-                  className="mt-6 flex items-center justify-center gap-2 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  style={{
-                    fontFamily: display,
-                    fontSize: '10px',
-                    letterSpacing: isLatin ? '0.4em' : '0.05em',
-                    color: service.accent,
-                    textTransform: labelTransform,
-                  }}
-                >
-                  <span>{section.visit}</span>
-                  <span>→</span>
-                </div>
+                {service.roman === 'I' && (
+                  <div
+                    className="mt-6 flex items-center justify-center gap-2 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    style={{
+                      fontFamily: display,
+                      fontSize: '10px',
+                      letterSpacing: '0.4em',
+                      color: service.accent,
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    <span>{SECTION.EN.visit}</span>
+                    <span>→</span>
+                  </div>
+                )}
               </div>
 
               <div
