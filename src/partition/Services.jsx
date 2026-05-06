@@ -393,11 +393,7 @@ const Services = ({ currentLang = 'EN' }) => {
                 </FadeSwap>
 
                 <div
-                  className={`mt-auto flex h-12 items-end justify-center gap-2 transition-opacity duration-500 ${
-                    service.roman === 'I'
-                      ? 'opacity-0 group-hover:opacity-100'
-                      : 'pointer-events-none opacity-0'
-                  }`}
+                  className="mt-auto flex h-12 items-end justify-center gap-2 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   style={{
                     fontFamily: display,
                     fontSize: '10px',
@@ -406,7 +402,7 @@ const Services = ({ currentLang = 'EN' }) => {
                     textTransform: 'uppercase',
                   }}
                 >
-                  <span>{SECTION.EN.visit}</span>
+                  <span>{section.visit}</span>
                   <span>→</span>
                 </div>
               </div>

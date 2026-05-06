@@ -210,15 +210,15 @@ const Contact = () => {
 
             <a
               href="mailto:soraempirewoldwide@gmail.com"
-              className="mt-10 inline-flex max-w-full items-center gap-3 border-b border-[#b8860b]/60 pb-2 text-[18px] text-[#0d1b5e] transition-colors duration-300 hover:text-[#8a6510] sm:text-[24px] lg:text-[28px]"
+              className="mt-10 inline-flex max-w-full items-center gap-3 border-b border-[#b8860b]/60 pb-2 text-[18px] text-[#0d1b5e] transition-colors duration-300 hover:text-[#8a6510] sm:text-[22px] lg:text-[24px]"
               style={{
                 fontFamily: sans,
-                fontWeight: 700,
+                fontWeight: 600,
                 letterSpacing: '0.02em',
               }}
             >
-              {/*<span className="truncate">soraempirewoldwide@gmail.com</span>*/}
-              {/*<span className="text-[#b8860b]">→</span>*/}
+              <span className="truncate">soraempirewoldwide@gmail.com</span>
+              <span className="text-[#b8860b]">→</span>
             </a>
           </ScrollReveal>
 
