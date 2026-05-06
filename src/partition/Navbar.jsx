@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import soraLogo from '../assets/soraLogo.png'
 
 const LANGUAGES = [
@@ -7,19 +7,30 @@ const LANGUAGES = [
   { code: 'JP', label: 'Japanese', native: '日本語' },
 ]
 
+const NAV_ITEMS = [
+  { href: '#about', label: 'About' },
+  { href: '#services', label: 'Services' },
+  { href: '#contact', label: 'Contact' },
+]
+
 const Navbar = ({ currentLang, setCurrentLang }) => {
   const serif = "'Cormorant Garamond', 'Playfair Display', Georgia, serif"
   const display = "'Cinzel', 'Cormorant Garamond', Georgia, serif"
 
   const [open, setOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const ref = useRef(null)
 
-  const lang = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0]
+  const lang = LANGUAGES.find((item) => item.code === currentLang) || LANGUAGES[0]
 
   useEffect(() => {
     const onClick = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false)
+        setMenuOpen(false)
+      }
     }
+
     document.addEventListener('mousedown', onClick)
     return () => document.removeEventListener('mousedown', onClick)
   }, [])
@@ -29,47 +40,39 @@ const Navbar = ({ currentLang, setCurrentLang }) => {
 
   return (
     <nav
-      className="relative z-10 mx-auto flex h-full items-center justify-between px-8"
+      ref={ref}
+      className="relative z-10 mx-auto w-full max-w-7xl px-4 py-3 sm:px-6 lg:px-8 lg:py-4"
       style={{ fontFamily: serif }}
     >
-      <div className="flex items-center gap-4">
-        <a href="#mission"><img src={soraLogo} alt="Sora Empire" className="h-12 w-auto object-contain" /></a>
-      </div>
+      <div className="flex items-center justify-between gap-4">
+        <a href="#mission" className="shrink-0">
+          <img src={soraLogo} alt="Sora Empire" className="h-10 w-auto object-contain sm:h-12" />
+        </a>
 
-      <ul
-        className="flex items-center gap-7 text-[15px] font-medium tracking-[0.22em] uppercase"
-        style={{ fontFamily: display, fontWeight: 500 }}
-      >
-        <li>
-          <a href="#about" className={linkClass}>
-            <span>About</span>
-            <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#b8860b] transition-all duration-300 group-hover:w-full" />
-          </a>
-        </li>
+        <ul
+          className="hidden items-center gap-7 text-[15px] font-medium tracking-[0.22em] uppercase lg:flex"
+          style={{ fontFamily: display, fontWeight: 500 }}
+        >
+          {NAV_ITEMS.map((item, index) => (
+            <React.Fragment key={item.href}>
+              <li>
+                <a href={item.href} className={linkClass}>
+                  <span>{item.label}</span>
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#b8860b] transition-all duration-300 group-hover:w-full" />
+                </a>
+              </li>
+              {index !== NAV_ITEMS.length - 1 && (
+                <li aria-hidden className="text-[8px] tracking-widest text-[#b8860b]/70">◆</li>
+              )}
+            </React.Fragment>
+          ))}
+        </ul>
 
-        <li aria-hidden className="text-[8px] tracking-widest text-[#b8860b]/70">◆</li>
-
-        <li>
-          <a href="#services" className={linkClass}>
-            <span>Services</span>
-            <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#b8860b] transition-all duration-300 group-hover:w-full" />
-          </a>
-        </li>
-
-        <li aria-hidden className="text-[8px] tracking-widest text-[#b8860b]/70">◆</li>
-
-        <li>
-          <a href="#contact" className={linkClass}>
-            <span>Contact</span>
-            <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#b8860b] transition-all duration-300 group-hover:w-full" />
-          </a>
-        </li>
-
-        <li className="ml-3" ref={ref}>
+        <div className="flex items-center gap-2">
           <div className="relative">
             <button
               type="button"
-              onClick={() => setOpen((o) => !o)}
+              onClick={() => setOpen((value) => !value)}
               aria-haspopup="listbox"
               aria-expanded={open}
               className="inline-flex items-center gap-2 border border-[#b8860b]/50 px-3 py-[5px] text-[11px] tracking-[0.35em] text-[#8a6510] transition-all duration-300 hover:border-[#b8860b] hover:bg-[#b8860b]/10"
@@ -95,7 +98,7 @@ const Navbar = ({ currentLang, setCurrentLang }) => {
                   fontFamily: serif,
                 }}
               >
-                {LANGUAGES.map((item, i) => {
+                {LANGUAGES.map((item, index) => {
                   const active = item.code === lang.code
                   return (
                     <li
@@ -107,9 +110,7 @@ const Navbar = ({ currentLang, setCurrentLang }) => {
                         setOpen(false)
                       }}
                       className={`flex cursor-pointer items-center justify-between px-4 py-3 text-[13px] tracking-[0.15em] uppercase transition-colors duration-200 ${
-                        i !== LANGUAGES.length - 1
-                          ? 'border-b border-[#b8860b]/20'
-                          : ''
+                        index !== LANGUAGES.length - 1 ? 'border-b border-[#b8860b]/20' : ''
                       } ${
                         active
                           ? 'bg-[#b8860b]/10 text-[#1a1a3a]'
@@ -148,8 +149,51 @@ const Navbar = ({ currentLang, setCurrentLang }) => {
               </ul>
             )}
           </div>
-        </li>
-      </ul>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen((value) => !value)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            className="flex h-10 w-10 items-center justify-center border border-[#b8860b]/45 text-[#8a6510] transition-colors duration-300 hover:bg-[#b8860b]/10 lg:hidden"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              {menuOpen ? (
+                <path
+                  d="M4 4 L14 14 M14 4 L4 14"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              ) : (
+                <>
+                  <path d="M3 5 H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M3 9 H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M3 13 H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {menuOpen && (
+        <div
+          id="mobile-menu"
+          className="absolute inset-x-4 top-full z-[65] mt-3 border border-[#b8860b]/35 p-4 shadow-lg lg:hidden"
+          style={{
+            background: 'linear-gradient(180deg, #fbf6ec 0%, #f5ead0 100%)',
+          }}
+        >
+          <div className="flex flex-col gap-4 text-[13px] tracking-[0.18em] uppercase" style={{ fontFamily: display }}>
+            {NAV_ITEMS.map((item) => (
+              <a key={item.href} href={item.href} className={linkClass} onClick={() => setMenuOpen(false)}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   )
 }

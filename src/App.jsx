@@ -10,9 +10,9 @@ const App = () => {
 
   return (
    <>
-     <div className='h-screen'>
+     <div className='flex min-h-screen flex-col'>
         <header
-          className='site-header-enter relative z-50 w-full h-1/12'
+          className='site-header-enter relative z-50 w-full shrink-0'
           style={{
             background: 'linear-gradient(180deg, #fbf6ec 0%, #f5ead0 100%)',
             borderBottom: '3px double #b8860b',
@@ -21,7 +21,7 @@ const App = () => {
         >
             <Navbar currentLang={currentLang} setCurrentLang={setCurrentLang} />
      </header>
-        <main className='site-scroll relative z-0 h-11/12 overflow-y-auto'>
+        <main className='site-scroll relative z-0 flex-1 overflow-y-auto'>
             <Hero currentLang={currentLang} />
             <About currentLang={currentLang} />
             <Services currentLang={currentLang} />

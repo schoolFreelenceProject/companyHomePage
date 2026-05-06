@@ -159,7 +159,7 @@ const Services = ({ currentLang = 'EN' }) => {
   return (
     <section
       id="services"
-      className="relative overflow-hidden px-8 py-24"
+      className="relative overflow-hidden px-5 py-16 sm:px-8 sm:py-24"
       style={{
         background:
           'radial-gradient(ellipse at 70% 30%, #ffffff 0%, #fbf7ed 55%, #ecdfc4 100%)',
@@ -209,7 +209,7 @@ const Services = ({ currentLang = 'EN' }) => {
             className="mb-4 text-center"
             style={{
               fontFamily: serif,
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontSize: 'clamp(2.1rem, 4.6vw, 4rem)',
               fontWeight: 500,
               lineHeight: 1.1,
               letterSpacing: '-0.01em',
@@ -226,7 +226,7 @@ const Services = ({ currentLang = 'EN' }) => {
             className="mx-auto mb-6 max-w-2xl text-center"
             style={{
               fontFamily: serif,
-              fontSize: '20px',
+              fontSize: '18px',
               color: '#8a6510',
               fontStyle: 'italic',
               fontWeight: 500,
@@ -252,10 +252,10 @@ const Services = ({ currentLang = 'EN' }) => {
         <ScrollReveal direction="up" delay={240}>
           <FadeSwap
             langKey={currentLang}
-            className="mx-auto mb-16 max-w-2xl text-center"
+            className="mx-auto mb-12 max-w-2xl text-center sm:mb-16"
             style={{
               fontFamily: translatedSerif,
-              fontSize: '16px',
+              fontSize: '14px',
               lineHeight: 1.7,
               color: '#3a3a5a',
               minHeight: '54px',
@@ -265,11 +265,11 @@ const Services = ({ currentLang = 'EN' }) => {
           </FadeSwap>
         </ScrollReveal>
 
-        <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3">
           {SERVICES.map((service, index) => (
             <ScrollReveal key={service.roman} className="h-full" delay={index * 90} direction="soft">
               <article
-              className="group relative flex h-full min-h-[470px] flex-col overflow-hidden bg-white/55 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1"
+              className="group relative flex h-full min-h-[445px] flex-col overflow-hidden bg-white/55 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 sm:min-h-[470px]"
               style={{
                 border: '1px solid rgba(184,134,11,0.35)',
                 boxShadow:
@@ -296,7 +296,7 @@ const Services = ({ currentLang = 'EN' }) => {
                 ◆
               </div>
 
-              <div className="flex h-full flex-col px-7 pb-7 pt-12">
+              <div className="flex h-full flex-col px-5 pb-6 pt-12 sm:px-7 sm:pb-7">
                 <div className="mb-6 flex justify-center">
                   <div
                     className="relative flex h-24 w-24 items-center justify-center overflow-hidden bg-white transition-transform duration-500 group-hover:scale-105"
@@ -342,7 +342,7 @@ const Services = ({ currentLang = 'EN' }) => {
 
                 <FadeSwap
                   langKey="EN"
-                  className="min-h-[76px] text-center"
+                  className="min-h-[72px] text-center sm:min-h-[76px]"
                   style={{
                     fontFamily: serif,
                     color: '#0d1b5e',
@@ -351,7 +351,7 @@ const Services = ({ currentLang = 'EN' }) => {
                   <h3
                     className="italic"
                     style={{
-                      fontSize: '26px',
+                      fontSize: '24px',
                       fontWeight: 500,
                       lineHeight: 1.15,
                       letterSpacing: '-0.005em',
@@ -380,11 +380,11 @@ const Services = ({ currentLang = 'EN' }) => {
 
                 <FadeSwap
                   langKey={currentLang}
-                  className="min-h-[105px] text-center"
+                  className="min-h-[112px] text-center sm:min-h-[105px]"
                   style={{
                     fontFamily: translatedSerif,
-                    fontSize: '14.5px',
-                    lineHeight: 1.65,
+                    fontSize: '14px',
+                    lineHeight: 1.6,
                     color: '#3a3a5a',
                     fontWeight: 400,
                   }}

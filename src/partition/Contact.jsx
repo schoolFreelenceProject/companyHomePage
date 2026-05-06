@@ -82,7 +82,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden px-6 py-24 sm:px-8"
+      className="relative overflow-hidden px-5 py-16 sm:px-8 sm:py-24"
       style={{
         background:
           'linear-gradient(180deg, #fbf6ec 0%, #f4ead2 52%, #e9dcc0 100%)',
@@ -107,7 +107,7 @@ const Contact = () => {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        <ScrollReveal className="mb-14 flex items-center justify-center gap-5" direction="soft">
+        <ScrollReveal className="mb-10 flex items-center justify-center gap-4 sm:mb-14 sm:gap-5" direction="soft">
           <span className="h-px w-20 bg-gradient-to-r from-transparent to-[#b8860b]" />
           <span
             className="text-[11px] font-medium tracking-[0.5em] text-[#8a6510]"
@@ -118,10 +118,10 @@ const Contact = () => {
           <span className="h-px w-20 bg-gradient-to-l from-transparent to-[#b8860b]" />
         </ScrollReveal>
 
-        <div className="grid gap-14 lg:grid-cols-[7fr_5fr] lg:items-start">
+        <div className="grid gap-10 sm:gap-14 lg:grid-cols-[7fr_5fr] lg:items-start">
           <ScrollReveal direction="left" delay={120}>
             <h2
-              className="text-[48px] italic sm:text-[64px] lg:text-[72px]"
+              className="text-[40px] italic sm:text-[64px] lg:text-[72px]"
               style={{
                 fontFamily: serif,
                 fontWeight: 500,
@@ -143,14 +143,14 @@ const Contact = () => {
               </span>
             </div>
 
-            <div className="mt-12 grid gap-10 md:grid-cols-2">
+            <div className="mt-10 grid gap-8 md:mt-12 md:grid-cols-2 md:gap-10">
               {CONTACT_DETAILS.map((item) => (
                 <address key={item.label} className="not-italic">
                   <h3
                     className="mb-4 italic"
                     style={{
                       fontFamily: serif,
-                      fontSize: '2.45rem',
+                      fontSize: '2.1rem',
                       fontWeight: 500,
                       lineHeight: 1,
                       color: '#0d1b5e',
@@ -159,7 +159,7 @@ const Contact = () => {
                     {item.label}
                   </h3>
                   <div
-                    className="space-y-2 text-[18px] leading-[1.5] text-[#28325f]"
+                    className="space-y-2 text-[16px] leading-[1.5] text-[#28325f] sm:text-[18px]"
                     style={{
                       fontFamily: item.label === 'Japan' ? japaneseFont : serif,
                       fontWeight: 500,
@@ -173,11 +173,11 @@ const Contact = () => {
               ))}
             </div>
 
-            <div className="mt-12 grid gap-5 sm:grid-cols-2">
+            <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 sm:grid-cols-2">
               {QUICK_CONTACTS.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center gap-4 border-l-2 border-[#b8860b] bg-white/35 px-5 py-5"
+                  className="flex items-center gap-4 border-l-2 border-[#b8860b] bg-white/35 px-4 py-4 sm:px-5 sm:py-5"
                   style={{
                     boxShadow:
                       '0 8px 24px rgba(13,27,94,0.06), inset 0 0 0 1px rgba(184,134,11,0.18)',
@@ -200,7 +200,7 @@ const Contact = () => {
                     >
                       {item.label}
                     </p>
-                    <p className="mt-1 text-[24px] font-semibold leading-tight text-[#0d1b5e]">
+                    <p className="mt-1 text-[21px] font-semibold leading-tight text-[#0d1b5e] sm:text-[24px]">
                       {item.value}
                     </p>
                   </div>
@@ -210,7 +210,7 @@ const Contact = () => {
 
             <a
               href="mailto:soraempirewoldwide@gmail.com"
-              className="mt-10 inline-flex max-w-full items-center gap-3 border-b border-[#b8860b]/60 pb-2 text-[18px] text-[#0d1b5e] transition-colors duration-300 hover:text-[#8a6510] sm:text-[22px] lg:text-[24px]"
+              className="mt-10 inline-flex max-w-full items-center gap-3 border-b border-[#b8860b]/60 pb-2 text-[16px] text-[#0d1b5e] transition-colors duration-300 hover:text-[#8a6510] sm:text-[22px] lg:text-[24px]"
               style={{
                 fontFamily: sans,
                 fontWeight: 600,
@@ -252,13 +252,13 @@ const Contact = () => {
               <img
                 src={officePlate}
                 alt="Sora Empire office plate"
-                className="h-[300px] w-full object-cover"
+                className="h-[220px] w-full object-cover sm:h-[300px]"
               />
               <div className="grid grid-cols-2">
                 <img
                   src={officeMark}
                   alt="Sora Empire office mark"
-                  className="h-44 w-full object-cover"
+                  className="h-36 w-full object-cover sm:h-44"
                 />
                 <div
                   className="flex items-center justify-center px-6 text-center"
@@ -275,7 +275,7 @@ const Contact = () => {
                       OFFICE
                     </p>
                     <p
-                      className="mt-3 text-[24px] italic leading-tight"
+                      className="mt-3 text-[20px] italic leading-tight sm:text-[24px]"
                       style={{ fontFamily: serif }}
                     >
                       Japan & Myanmar

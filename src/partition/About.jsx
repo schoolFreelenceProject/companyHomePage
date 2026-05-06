@@ -119,7 +119,7 @@ const About = ({ currentLang = 'EN' }) => {
   return (
     <section
       id="about"
-      className="relative overflow-hidden px-8 py-24"
+      className="relative overflow-hidden px-5 py-16 sm:px-8 sm:py-24"
       style={{
         background:
           'radial-gradient(ellipse at 30% 25%, #ffffff 0%, #fbf7ed 55%, #f0e6d0 100%)',
@@ -150,7 +150,7 @@ const About = ({ currentLang = 'EN' }) => {
         }}
       />
 
-      <div className="ornament-drift pointer-events-none absolute top-8 left-8 opacity-40">
+      <div className="ornament-drift pointer-events-none absolute left-5 top-5 hidden opacity-40 sm:left-8 sm:top-8 md:block">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="31" stroke="#b8860b" strokeWidth="0.5" />
           <circle cx="32" cy="32" r="24" stroke="#b8860b" strokeWidth="0.3" />
@@ -162,7 +162,7 @@ const About = ({ currentLang = 'EN' }) => {
           />
         </svg>
       </div>
-      <div className="ornament-drift pointer-events-none absolute top-8 right-8 opacity-40">
+      <div className="ornament-drift pointer-events-none absolute right-5 top-5 hidden opacity-40 sm:right-8 sm:top-8 md:block">
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="31" stroke="#b8860b" strokeWidth="0.5" />
           <circle cx="32" cy="32" r="24" stroke="#b8860b" strokeWidth="0.3" />
@@ -176,7 +176,7 @@ const About = ({ currentLang = 'EN' }) => {
       </div>
 
       <div className="relative mx-auto max-w-6xl">
-        <ScrollReveal className="mb-16 flex items-center justify-center gap-5" direction="soft">
+        <ScrollReveal className="mb-10 flex items-center justify-center gap-4 sm:mb-16 sm:gap-5" direction="soft">
           <span className="h-px w-20 bg-gradient-to-r from-transparent to-[#b8860b]" />
           <span
             className="text-[11px] font-medium tracking-[0.5em] text-[#8a6510]"
@@ -187,8 +187,8 @@ const About = ({ currentLang = 'EN' }) => {
           <span className="h-px w-20 bg-gradient-to-l from-transparent to-[#b8860b]" />
         </ScrollReveal>
 
-        <div className="grid items-center gap-14 md:grid-cols-[5fr_7fr]">
-          <ScrollReveal className="relative" direction="left" delay={120}>
+        <div className="grid items-center gap-10 sm:gap-14 md:grid-cols-[5fr_7fr]">
+          <ScrollReveal className="relative mx-auto w-full max-w-sm md:max-w-none" direction="left" delay={120}>
             <div
               className="absolute -top-3 -left-3 z-0 h-32 w-32"
               style={{
@@ -236,10 +236,9 @@ const About = ({ currentLang = 'EN' }) => {
                 <span className="h-px w-10 bg-[#b8860b]" />
               </div>
               <h3
-                className="mb-3"
+                className="mb-3 text-[1.7rem] sm:text-[2rem]"
                 style={{
                   fontFamily: display,
-                  fontSize: '2rem',
                   fontWeight: 600,
                   letterSpacing: '0.18em',
                   color: '#0d1b5e',
@@ -266,7 +265,7 @@ const About = ({ currentLang = 'EN' }) => {
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px w-10 bg-[#b8860b]" />
               <span
-                className="text-[11px] font-medium text-[#8a6510] uppercase tracking-[0.45em]"
+                className="text-[10px] font-medium text-[#8a6510] uppercase tracking-[0.32em] sm:text-[11px] sm:tracking-[0.45em]"
                 style={{ fontFamily: sansBase }}
               >
                 Message from the Founder
@@ -277,7 +276,7 @@ const About = ({ currentLang = 'EN' }) => {
               className="mb-2"
               style={{
                 fontFamily: serifBase,
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                fontSize: 'clamp(2.1rem, 4.6vw, 4rem)',
                 fontWeight: 500,
                 lineHeight: 1.1,
                 letterSpacing: '-0.01em',
@@ -326,8 +325,8 @@ const About = ({ currentLang = 'EN' }) => {
               className="mb-8 min-h-[110px]"
               style={{
                 fontFamily: serif,
-                fontSize: '19px',
-                lineHeight: 1.75,
+                fontSize: '17px',
+                lineHeight: 1.7,
                 color: '#1a2855',
                 fontWeight: 400,
               }}
@@ -363,7 +362,7 @@ const About = ({ currentLang = 'EN' }) => {
 
             <FadeSwap
               langKey={currentLang}
-              className="mt-10 flex items-center gap-3 text-[10px]"
+              className="mt-10 flex flex-wrap items-center gap-3 text-[10px]"
               style={{
                 fontFamily: sans,
                 fontWeight: 400,
